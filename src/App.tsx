@@ -15,13 +15,26 @@ const Container = styled.div`
 `
 
 const pushToFirebase = async (user: string, text: string): Promise<void> => {
+	// we push to the database
 	const now = Date.now()
+
+	// the user object will be:
+	// user: {
+	// 	[randomUuid]: { 
+	// 		messages: {
+	// 			someTimeStamp: 'someMessage'
+	// 			someOtherTimeStamp: 'someOtherMessage'
+	// 		}
+	// 	}
+	// }
+
 	db.collection('users').doc(user).set({
 		messages: { [now]: text, },
 	}, { merge: true, })
 }  
 
 const Player = ({ id, }: { id: string, }) => {
+	// a controlled form where on submit we send some data to firebase
 	const [ text, setText, ] = useState('')
 
 	return (
@@ -40,12 +53,19 @@ const Player = ({ id, }: { id: string, }) => {
 }
 
 const Chat = (): JSX.Element => {
+	// TODO: Implement snapshot listeners on player 1 and player2. Display a chat of their messages.
+	// https://firebase.google.com/docs/firestore/query-data/listen for snapshot documentation.
+	// i have disabled all security, so you should not worry about that :)
+
 	return (
 		<></>
 	)
 }
 
 const App = (): JSX.Element => {
+	// we generate a random uid for each player. We use this as their database id. 
+	// note: this means you cannot retrieve chats on page reload!
+
 	const [idPlayerOne,] = useState(uuidv4())
 	const [idPlayerTwo,] = useState(uuidv4())
 
