@@ -6,4 +6,7 @@ Please fork this and make appropiate edits to display a chat between two "player
 - We expect code to pass typescript (yarn tsc)
 - We expect you to use styled-components
 
+- We *dont* expect extremely nice design (focus on code)
+- 
+
 We hope this won't take too long (1-2 hours!).
