@@ -25,6 +25,7 @@ Note that you will create new documents on refreshing the page, so don't expect 
 
 Firestore is installed with a slightly old version (as-is our codebase :))! Docs can be found: https://firebase.google.com/docs/firestore, and you will need v8 version: https://firebase.google.com/docs/firestore/query-data/listen#web-version-8 (this is also a good place to start!)
 
+Feel free to re-structure the code as you see fit!
 
 What we hope to see:
 - We expect the code to pass lint (yarn eslint ./src/*)
