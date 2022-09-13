@@ -2,6 +2,7 @@ import React, { useState } from 'react'
 import styled from 'styled-components'
 import { db } from './firestore'
 import { v4 as uuidv4 } from 'uuid'
+import { doc, setDoc } from '@firebase/firestore'
 
 const Root = styled.div`
 	display: flex;
@@ -28,7 +29,8 @@ const pushToFirebase = async (user: string, text: string): Promise<void> => {
 	// 	}
 	// }
 
-	db.collection('users').doc(user).set({
+	const userRef = doc(db, `users/${user}`)
+	setDoc(userRef, {
 		messages: { [now]: text, },
 	}, { merge: true, })
 }  
