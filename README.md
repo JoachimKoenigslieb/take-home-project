@@ -38,4 +38,7 @@ What we hope to see:
 What we dont really care about:
 - We *dont* expect extremely nice design (focus on code)
 
+This is an example of a very accepted solution design wise:
+![plot](./chat_design.png)
+
 We hope this won't take too long (1-2 hours!).
