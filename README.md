@@ -9,21 +9,24 @@ The goal is to display a chat between the two sides in the middle.
 The data in firestore will look like:
 
 ```
-user: {
+users: {
   [randomUuid]: { 
  		messages: {
- 			someTimeStamp: 'someMessage'
- 			someOtherTimeStamp: 'someOtherMessage'
+ 			[someTimeStamp]: 'someMessage'
+ 			[someOtherTimeStamp]: 'someOtherMessage',
+			...
  		}
  	}
 }
 ```
 
-Where any new messages will get merge in the messages object. 
+This is, we have a users collection with documents with documents with random ids. These documents have a messages map in them, which contain records of timestamp and strings corresponding to the messages.
+
+Any new messages will get merged into the messages object. 
 
 Note that you will create new documents on refreshing the page, so don't expect old messages to still be there between loads!
 
-Firestore is installed with a slightly old version (as-is our codebase :))! Docs can be found: https://firebase.google.com/docs/firestore, and you will need v8 version: https://firebase.google.com/docs/firestore/query-data/listen#web-version-8 (this is also a good place to start!)
+Firestore docs are here: https://firebase.google.com/docs/firestore
 
 Feel free to re-structure the code as you see fit!
 
